@@ -5,37 +5,44 @@
 
 ## Below are the steps to install the Kubernets on EC2
 
-
+#### Step 1.
 
 ```sh
-
-Step 1.
 
 setenforce 0
 
 To disable SELinux temporarily
 
-Step 2:
+```
 
+#### Step 2.
+
+```sh
 free -h 
 
 The free command gives information about used and unused memory usage and swap memory of a system.
 
-Step 3: 
+```
 
+#### Step 3.
+```sh
+ 
 swapoff -a
 
 To deactivate a swap space, use the command swapoff
 
-Step 4: 
+```
 
+#### Step 4.
+```sh
 cat <<EOF > /etc/sysctl.d/k8s.conf
 net.bridge.bridge-nf-call-ip6tables = 1
 net.bridge.bridge-nf-call-iptables = 1
 EOF
+```
+#### Step 5.
 
-
-Step 5: 
+```sh
 Installaton of Docker 
 
 sudo apt-get update
@@ -57,9 +64,10 @@ sudo add-apt-repository \
  sudo apt-get update
  
  sudo apt-get install docker-ce docker-ce-cli containerd.io
- 
- Steps 6: 
- 
+ ```
+#### Step 6. 
+
+ ```sh
  cat <<EOF > /etc/yum.repos.d/kubernetes.repo
 [kubernetes]
 name=Kubernetes
@@ -70,9 +78,11 @@ repo_gpgcheck=1
 gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg
         https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
 EOF
+```
 
-Step 7: 
-installation of Kubelet , Kubeadm, Kubectl
+#### Step 7. 
+
+##### installation of Kubelet , Kubeadm, Kubectl
 
 Kubelet : The kubelet is the primary "node agent" that runs on each node. 
 
@@ -80,7 +90,7 @@ Kubeadm: Kubeadm is a tool built to provide kubeadm init and kubeadm join as bes
 
 Kubectl: The Kubernetes command-line tool, kubectl, allows you to run commands against Kubernetes clusters.
 
-
+```sh 
 yum install kubeadm kubectl kubelet
 
 systemctl status kubelet
@@ -92,10 +102,13 @@ mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
-
+```
 
 Step 8:
 
+#### Step 8.
+
+```sh
 kubectl get pods --all-namespaces
 
 ```
