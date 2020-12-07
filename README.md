@@ -9,9 +9,11 @@
 
 ```sh
 
+sudo su  // Take the super user access 
+
 setenforce 0
 
-To disable SELinux temporarily
+To disable SELinux temporarily (disable the security of Linux)
 
 ```
 
@@ -49,25 +51,12 @@ EOF
 ```sh
 Installaton of Docker 
 
-sudo apt-get update
+yum install docker 
 
-sudo apt-get install \
-    apt-transport-https \
-    ca-certificates \
-    curl \
-    gnupg-agent \
-    software-properties-common
-    
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+systemctl enable docker 
 
-sudo add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable"
+systemctl start docker 
 
- sudo apt-get update
- 
- sudo apt-get install docker-ce docker-ce-cli containerd.io
  ```
 #### Step 6.
 
@@ -97,7 +86,7 @@ Kubeadm: Kubeadm is a tool built to provide kubeadm init and kubeadm join as bes
 Kubectl: The Kubernetes command-line tool, kubectl, allows you to run commands against Kubernetes clusters.
 
 ```sh 
-sudo apt-get install kubeadm kubectl kubelet
+yum install kubeadm kubectl kubelet
 
 systemctl status kubelet
 
