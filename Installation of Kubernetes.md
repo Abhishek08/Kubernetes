@@ -3,6 +3,13 @@
 
 ## Below are the steps to install the Kubernets on EC2
 
+
+### Ports that need to enable 
+
+| Attempt | #1 | #2 |
+| :---: | :---: | :---: |
+| Seconds | 301 | 283 |
+
 #### Step 1.
 
 ```sh
