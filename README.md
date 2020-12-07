@@ -34,6 +34,10 @@ To deactivate a swap space, use the command swapoff
 ```
 
 #### Step 4.
+
+Ubuntu 16.04 has reported issues with traffic being routed incorrectly due to iptables being bypassed.
+Ensure net.bridge.bridge-nf-call-iptables is set to 1 in the sysctl config,
+
 ```sh
 cat <<EOF > /etc/sysctl.d/k8s.conf
 net.bridge.bridge-nf-call-ip6tables = 1
@@ -65,7 +69,9 @@ sudo add-apt-repository \
  
  sudo apt-get install docker-ce docker-ce-cli containerd.io
  ```
-#### Step 6. 
+#### Step 6.
+
+To configure the Kubernetes package in the System we will use this command.
 
  ```sh
  cat <<EOF > /etc/yum.repos.d/kubernetes.repo
@@ -107,6 +113,8 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 Step 8:
 
 #### Step 8.
+
+To See the list of pods 
 
 ```sh
 kubectl get pods --all-namespaces
