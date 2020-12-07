@@ -102,10 +102,13 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 To See the list of pods 
 ```sh
 
+This commend used to make master as a worker in Single node cluster
 kubectl taint nodes --all node-role.kubernetes.io/master-
 
+To apply pods network communication we use calico network
 kubectl apply -f https://docs.projectcalico.org/v3.9/manifests/calico.yaml 
 
+to see the list of Pods we will use this command 
 kubectl get pods --all-namespaces
 
 ```
