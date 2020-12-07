@@ -99,7 +99,6 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 #### Step 8.
 
-To See the list of pods 
 ```sh
 
 This commend used to make master as a worker in Single node cluster
