@@ -6,9 +6,18 @@
 
 ### Ports that need to enable 
 
-| Protocal | #Direction | #Port Range | #Purpose | #Used By |
-| :---: | :---: | :---: || :---: | | :---: | 
-| TCP | Inbound | 6443* | Kubernetes API server | All|
+| Protocal | Direction | Port-Range  | Purpose                 | Used By               |
+|----------|-----------|-------------|-------------------------|-----------------------|
+| TCP      | Inbound   | 6443*       | Kubernetes API server   | All                   |
+| TCP      | Inbound   | 2379- 2380  | etcd server client api  | kube-apiserver , etcd |
+| TCP      | Inbound   | 10250       | Kubelet API             | Self control,plane    |
+| TCP      | Inbound   | 10251       | Kube-Schedular          | Self                  |
+| TCP      | Inbound   | 30000-32767 | Nodeport-services+      | All                   |
+| TCP      | Inbound   | 10252       | Kube-controller manager | Self                  |
+| TCP      | Ibound    | 22          | SSH                     | Self                  |
+| TCP      | Ibnound   | 80          | HTTP                    | Self                  |
+| TCP      | Inbound   | 443         | HTTPS                   | Self                  |
+| TCP      | Inbound   | 5432        | Postgres                | postgres              |
 
 #### Step 1.
 
