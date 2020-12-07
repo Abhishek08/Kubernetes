@@ -1,6 +1,4 @@
-# Kubernetes 
-
-##  Installation of Kubernets on AWS EC2 
+# Installation of Kubernets on AWS EC2 Single Node cluster 
 
 
 ## Below are the steps to install the Kubernets on EC2
@@ -99,13 +97,15 @@ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
 
-Step 8:
-
 #### Step 8.
 
 To See the list of pods 
-
 ```sh
+
+kubectl taint nodes --all node-role.kubernetes.io/master-
+
+kubectl apply -f https://docs.projectcalico.org/v3.9/manifests/calico.yaml 
+
 kubectl get pods --all-namespaces
 
 ```
