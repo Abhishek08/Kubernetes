@@ -97,7 +97,7 @@ Kubeadm: Kubeadm is a tool built to provide kubeadm init and kubeadm join as bes
 Kubectl: The Kubernetes command-line tool, kubectl, allows you to run commands against Kubernetes clusters.
 
 ```sh 
-yum install kubeadm kubectl kubelet
+sudo apt-get install kubeadm kubectl kubelet
 
 systemctl status kubelet
 
