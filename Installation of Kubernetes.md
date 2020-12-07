@@ -6,9 +6,9 @@
 
 ### Ports that need to enable 
 
-| Attempt | #1 | #2 |
-| :---: | :---: | :---: |
-| Seconds | 301 | 283 |
+| Protocal | #Direction | #Port Range | #Purpose | #Used By |
+| :---: | :---: | :---: || :---: | | :---: | 
+| TCP | Inbound | 6443* | Kubernetes API server | All|
 
 #### Step 1.
 
