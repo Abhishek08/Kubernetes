@@ -86,23 +86,6 @@ using --port.
 kubectl run hello-minikube --image=k8s.gcr.io/echoserver:1.10 --
 port=8080
 
-
-In order to access the hello-minikube service, we must first expose
-the deployment to an external IP via the command:
-
-kubectl expose deployment hello-minikube --type=NodePort
-kubectl get services
-
-Get the URL of the exposed Service to view the Service details:
-minikube service hello-minikube --url
-
-Delete the Service 
-kubectl delete services hello-minikube
-kubectl delete deployment hello-minikube
-
-Stop the local Minikube cluster:
-minikube stop
-
 ```
 
 
