@@ -44,7 +44,7 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io
 #### Step 2 Install KubeCtl 
 
 ```sh
-curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 && chmod +x minikube && sudo mv minikube /usr/local/bin/
+curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
 
 chmod +x ./kubectl
 
@@ -57,11 +57,11 @@ sudo mv ./kubectl /usr/local/bin/kubectl
 #### Step 3 Install MiniKube
 ```sh
 
-curl -Lo minikube https://storage.googleapis.com/minikube/
-releases/latest/minikube-linux-amd64 && chmod +x minikube
+curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
 
- sudo install minikube /usr/local/bin
+chmod +x ./minikube
 
+sudo mv ./kubectl /usr/local/bin/minikube
 ```
 
 #### Step 4 Execute MiniKube & Create Cluster
