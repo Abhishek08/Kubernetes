@@ -56,6 +56,7 @@ sudo mv ./kubectl /usr/local/bin/kubectl
 
 #### Step 3 Install MiniKube
 ```sh
+ sudo kubectl apply -f https://docs.projectcalico.org/v2.6/getting-started/kubernetes/installation/hosted/kubeadm/1.6/calico.yaml
 
 curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
 
@@ -70,7 +71,7 @@ sudo apt-get install conntrack
 
 ```sh
 
-minikube start
+minikube start --vm-driver=none
 
 ```
 
@@ -79,11 +80,17 @@ minikube start
 ```sh
 
 Let’s create a Kubernetes Deployment using an existing image named
-echoserver, which is a simple HTTP server and expose it on port 8080
+nginx, which is a simple HTTP server and expose it on port 80
 using --port.
 
-kubectl run hello-minikube --image=k8s.gcr.io/echoserver:1.10 --
-port=8080
+sudo kubectl create deployment nginx --image=nginx
+
+Create the Service 
+sudo kubectl create service nodeport nginx --tcp=80:80
+
+kubectl get svc
+
+kubectl patch svc nginx -p '{"spec":{"externalIPs":["ipaddress"]}}'
 
 ```
 
@@ -93,29 +100,13 @@ port=8080
 
 ```sh
 
-kubectl get pod
-kubectl get deployments
+kubectl get pods -A
+kubectl get deployment
 
 ```
 
 
-#### Step 7 Create the Service 
-
-```sh
-
-In order to access the hello-minikube service, we must first expose
-the deployment to an external IP via the command:
-
-kubectl expose deployment hello-minikube --type=NodePort
-kubectl get services
-
-Get the URL of the exposed Service to view the Service details:
-minikube service hello-minikube --url
-
-```
-
-
-#### Step 9 Delete the Service and Deployment
+#### Step 7 Delete the Service and Deployment
 
 ```sh
 
@@ -124,7 +115,7 @@ kubectl delete deployment hello-minikube
 
 ```
 
-#### Step 10 Stop MiniKube
+#### Step 8 Stop MiniKube
 
 ```sh
 Stop the local Minikube cluster:
