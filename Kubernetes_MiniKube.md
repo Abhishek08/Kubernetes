@@ -19,15 +19,25 @@ Minikube can’t be used in Production, as It’s One Node Machine.
 
 ```sh
 
-yum install docker
+sudo apt-get update
 
-systemctl docker start
+sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg-agent \
+    software-properties-common
+    
+ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+ 
+ sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
 
-systemctl start docker
+sudo apt-get update
 
-systemctl service docker
-
-systemctl status docker
+sudo apt-get install docker-ce docker-ce-cli containerd.io
 
 ````
 
@@ -40,29 +50,25 @@ chmod +x ./kubectl
 
 sudo mv ./kubectl /usr/local/bin/kubectl
 
-kubectl version
+ kubectl version
 
 ```
 
 #### Step 3 Install MiniKube
 ```sh
 
-curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 
+curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
 
 chmod +x ./minikube
 
 sudo mv ./kubectl /usr/local/bin/minikube
-
-
-yum install conntrack
-
 ```
 
 #### Step 4 Execute MiniKube & Create Cluster
 
 ```sh
 
-minikube start --vm-driver=none
+minikube start
 
 ```
 
