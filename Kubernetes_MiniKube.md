@@ -62,6 +62,8 @@ curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/miniku
 chmod +x ./minikube
 
 sudo mv ./kubectl /usr/local/bin/minikube
+
+sudo apt-get install conntrack
 ```
 
 #### Step 4 Execute MiniKube & Create Cluster
