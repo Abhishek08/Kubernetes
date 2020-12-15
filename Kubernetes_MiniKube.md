@@ -1,5 +1,5 @@
 
-# Setup Kuberneted with MiniKube on Ubuntu AWS Ec2 Instance 
+# Setup kubernetes with MiniKube on Ubuntu AWS Ec2 Instance 
 
 ### MiniKube 
 
@@ -13,7 +13,7 @@ MiniKube is used for Development Purposes.
 Minikube can’t be used in Production, as It’s One Node Machine.
 
 
-### Steps to Setup Kuberneted with MiniKube
+### Steps to Setup kubernetes with MiniKube
 
 #### Step 1 Install Docker 
 
