@@ -56,22 +56,21 @@ sudo mv ./kubectl /usr/local/bin/kubectl
 
 #### Step 3 Install MiniKube
 ```sh
- sudo kubectl apply -f https://docs.projectcalico.org/v2.6/getting-started/kubernetes/installation/hosted/kubeadm/1.6/calico.yaml
 
 curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
 
 chmod +x ./minikube
 
-sudo mv ./kubectl /usr/local/bin/minikube
+sudo mv ./minikube /usr/local/bin/minikube
 
-sudo apt-get install conntrack
+sudo apt-get install conntrack  // this is dependecy for minicube 
 ```
 
 #### Step 4 Execute MiniKube & Create Cluster
 
 ```sh
 
-minikube start --vm-driver=none
+minikube start --vm-driver=none  // 
 
 ```
 
@@ -86,7 +85,7 @@ using --port.
 sudo kubectl create deployment nginx --image=nginx
 
 Create the Service 
-sudo kubectl create service nodeport nginx --tcp=80:80
+sudo kubectl create service nodeport nginx --tcp=80:80 
 
 kubectl get svc
 
@@ -110,8 +109,8 @@ kubectl get deployment
 
 ```sh
 
-kubectl delete services hello-minikube
-kubectl delete deployment hello-minikube
+kubectl delete services nginx
+kubectl delete deployment nginx
 
 ```
 
