@@ -1,5 +1,5 @@
 
-# Setup Kuberneted with MiniKube 
+# Setup Kuberneted with MiniKube on Ubuntu AWS Ec2 Instance 
 
 ### MiniKube 
 
