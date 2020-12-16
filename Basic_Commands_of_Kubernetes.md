@@ -36,6 +36,9 @@ kubectl get pods
 ##### Get the list of Pods 
 kubectl get pods -a
 
+##### Setup the external IP address to access the service from outerworld
+kubectl patch svc nginx -p '{"spec":{"externalIPs":["ipaddress"]}}'
+
 ##### Delete the service 
 kubectl delete services <name_of_service>
 
