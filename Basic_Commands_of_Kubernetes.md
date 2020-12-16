@@ -34,7 +34,7 @@ example: minikube service nginx --url
 kubectl get pods 
 
 ##### Get the list of Pods 
-kubectl get pods -a
+kubectl get pods -A
 
 ##### Setup the external IP address to access the service from outerworld
 kubectl patch svc nginx -p '{"spec":{"externalIPs":["ipaddress"]}}'
