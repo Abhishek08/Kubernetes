@@ -12,6 +12,9 @@ Example : kubectl create deployment nginx --image=nginx
 ##### Get Information of Running Deployments
 kubectl get deployments
 
+##### Get the help all the available commands
+kubectl get --help  
+
 ##### Describe the Running Deployment
 kubectl describe deployment <name_of_deployment>
 Example: kubectl describe deployment nginx
