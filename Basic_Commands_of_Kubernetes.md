@@ -7,6 +7,7 @@ kubectl get nodes
 
 ##### Start the Deployment on Kubernetes Cluster.
 kubectl create deployment <deployment_name> --image=<imagename>
+  
 Example : kubectl create deployment nginx --image=nginx
 
 ##### Get Information of Running Deployments
