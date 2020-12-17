@@ -2,6 +2,11 @@
 
 # Basic Commands of Kubernetes
 
+
+##### Start the minikube 
+minikube start --vm-driver=none 
+
+
 ##### To check the list of nodes or Verify Minikube is runnung
 kubectl get nodes 
 
