@@ -50,9 +50,59 @@ spec:  // Specfication contain 2 things 1. Replicas and 2. Pods (Template)
  
  ### Commands 
  
- 1. Command to create the replication controller 
+##### 1. Command to create the replication controller 
  ```sh
  
  kubectl create -f name_of_replication_menifest_file.yml
  
  ```
+
+##### 2. To See the list of Pods 
+
+```sh
+
+kubectl get pods 
+```
+
+##### 3. To See the list of replication controller  
+
+```sh
+
+kubectl get rc 
+```
+
+##### 4. Increase the replicas in the replication controller   
+
+```sh
+
+kubectl scale --replicas=<number of pods > rc/controller_name
+
+example : kubectl scale --replicas=10 rc/nginx
+```
+
+##### 5. Decribe the replication controller    
+
+```sh
+
+kubectl describe rc/<replication_controller_name>
+
+```
+
+##### 6. Decribe the pds    
+
+```sh
+
+kubectl describe <pad_name>
+
+```
+
+##### 6. Delte the replication controller  
+
+```sh
+
+kubectl delete  rc/<name of replication controller > 
+
+```
+
+
+
