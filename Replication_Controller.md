@@ -29,13 +29,13 @@ Below are the segments need to define in Relication Controller Manifest file.
 ```sh
 apiVersion: v1
 kind: ReplicationController
-metadata:
+metadata:   // MetaData contain 2 things name and Label (optional). Name of the replication controller 
   name: nginx
-spec:
+spec:  // Specfication contain 2 things 1. Replicas and 2. Pods (Template)
   replicas: 3
-  selector:
+  selector: // Replication controller will know the pods using selector this selector name same as lable name in metadata 
     app: nginx
-  template:
+  template:   // In this section we can define the pod configration
     metadata:
       name: nginx
       labels:
