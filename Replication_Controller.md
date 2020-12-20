@@ -47,3 +47,12 @@ spec:  // Specfication contain 2 things 1. Replicas and 2. Pods (Template)
         ports:
       - containerPort: 80
  ```
+ 
+ ### Commands 
+ 
+ 1. Command to create the replication controller 
+ ```sh
+ 
+ kubectl create -f name_of_replication_menifest_file.yml
+ 
+ ```
