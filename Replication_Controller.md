@@ -29,23 +29,23 @@ Below are the segments need to define in Relication Controller Manifest file.
 ```sh
 apiVersion: v1
 kind: ReplicationController
-metadata:   # MetaData contain 2 things name and Label (optional). Name of the replication controller 
-  name: nginx   # Name of the Replication controller
+metadata:   # MetaData contain 2 things name and Label (optional). Name of the replication controller
+  name: nginxreplication   # Name of the Replication controller
 spec:   #  Specfication contain 2 things 1. Replicas and 2. Pods (Template)
   replicas: 3
-  selector:  # Replication controller will know the pods using selector this selector name same as lable name in metadata 
-    app: nginx  # name of the application in which perticular controller is running 
+  selector:  # Replication controller will know the pods using selector this selector name same as lable name in metadata
+    app: nginx  # name of the application in which perticular controller is running
   template:  # In this section we can define the pod configration
     metadata:
-      name: nginx # name of the pod
+      name: nginx
       labels:
         app: nginx
     spec:
       containers:
-      - name: nginx  # name of the container
+      - name: nginximage
         image: nginx   # Image Name
         ports:
-        - containerPort: 80 
+        - containerPort: 80
       
  ```
  
@@ -93,7 +93,7 @@ kubectl describe rc/<replication_controller_name>
 
 ```sh
 
-kubectl describe <pad_name>
+kubectl describe pods <pad_name>
 
 ```
 
