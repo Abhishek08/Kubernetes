@@ -88,22 +88,21 @@ kind: ReplicaSet # # The kind we are creating
 metadata: # Specify all Metadata like name, labels
  name: frontend
  labels:
-   app: myReplica
+   app: frontend
 spec:
   replicas: 3 # Here is where we tell k8s how many replicas we want
-  selector:   # This is our label selector field. 
-    matchExperssions: 
-      - key: Enviourment   # we are using the Selector based 
+  selector:   # This is our label selector field.
+    matchExpressions:
+      - key: app1
         operator: In
-	values:
-	  - qa
-	  - test 
+        values:
+         - qa
   template:
     metadata:
       labels:
-        app: qa   
+        app1: qa
     spec:
-      containers:  
+      containers:
         - name: php-redis
           image: gcr.io/google_samples/gb-frontend:v3
 _________________________________________________________
