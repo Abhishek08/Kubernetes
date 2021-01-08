@@ -79,4 +79,59 @@ spec:
 		  
 
 ```
+#### Match Selector 
+
+```sh
+
+apiVersion: apps/v1  # our API version
+kind: ReplicaSet # # The kind we are creating
+metadata: # Specify all Metadata like name, labels
+ name: frontend
+ labels:
+   app: myReplica
+spec:
+  replicas: 3 # Here is where we tell k8s how many replicas we want
+  selector:   # This is our label selector field. 
+    matchExperssions: 
+      - key: Enviourment   # we are using the Selector based 
+        operator: In
+	values:
+	  - qa
+	  - test 
+  template:
+    metadata:
+      labels:
+        app: qa   
+    spec:
+      containers:  
+        - name: php-redis
+          image: gcr.io/google_samples/gb-frontend:v3
+_________________________________________________________
+
+Creating normal Pods 
+
+Creating normal pod 
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod1
+  labels:
+    Enviourment: qa
+spec:
+  containers:
+  - name: hello1
+    image: gcr.io/google-samples/hello-app:2.0
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod2
+  labels:
+    Enviourment: test
+spec:
+  containers:
+  - name: hello2
+    image: gcr.io/google-samples/hello-app:1.0
+		  
 
