@@ -33,17 +33,18 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: NginxService
+  name: nginxservice
   labels:
-    name: NginxService
+    name: nginxservice
 spec:
   ports:
-    - port: 8080
-      targetPort: 8080
+    - port: 80
+      nodePort: 30225
       protocol: TCP
   selector:
     app: frontend
-  type: LoadBalancer 
+  type: NodePort
+
 
 ```
 
